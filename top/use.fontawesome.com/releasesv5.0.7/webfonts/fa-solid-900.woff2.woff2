@@ -1,0 +1,11 @@
+  // Open woff2 font
+    string fontPath = Path.Combine(DataDir, "fa-solid-900.woff2.woff2");
+    FontDefinition fontDefinition = new FontDefinition(FontType.WOFF2, new FontFileDefinition(new FileSystemStreamSource(fontPath)));
+    Font font = Font.Open(fontDefinition);
+    
+    // Woff2 output settings
+    string outPath = Path.Combine(OutputDir, "fa-solid-900.woff2.woff2");
+    FileStream outStream = File.Create(outPath);
+    
+    // Convert woff2 to woff2
+    font.SaveToFormat(outStream, FontSavingFormats.WOFF2);
